@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+<style>
+
+table{
+	text-align:center;
+	width:50%;
+	border:none;
+	margin:auto;
+}
+
+img{
+	padding:0 5px;
+}
+h1{
+	text-align:center;
+}
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+<script>
+	
+$(document).ready(function(){
+	
+	// selecciono todas las imagenes y las agrego a una variable, dicha variable se transforma en un arreglo.
+	var elementos= document.querySelectorAll("img");
+	
+	// Con este for recorremos el arreglo y pone a la escucha TODAS las imagenes.
+	for (var i=0 ; i<elementos.length ; i++){
+		elementos[i].addEventListener("mouseover", cambiar, false); // a la escucha de el mouse arriba de la img.
+		elementos[i].addEventListener("mouseout" , restaurar, false); // a la escucha de el mouse fuera de la img.
+	}	
+});
+	// Cambia las imagenes de borrosa a normal cuando se pasa por encima el mouse.
+	function cambiar(e){
+		if(e.target==img1){ 
+			$("#img1").attr("src","../imgs/imgs1.jpg");
+		}else if(e.target==img2){
+			$("#img2").attr("src","../imgs/imgs2.jpg");
+		}else if(e.target==img3){
+			$("#img3").attr("src","../imgs/imgs3.jpg");
+		}else if(e.target==img4){
+			$("#img4").attr("src","../imgs/imgs4.png");
+		}
+	}
+	
+	// Cambia las imagenes de normal a borrosa cuando se pasa por encima el mouse.
+	
+	function restaurar(e){
+		if(e.target==img1){ 
+			$("#img1").attr("src","../imgs2/imgs1.jpg");
+		}else if(e.target==img2){
+			$("#img2").attr("src","../imgs2/imgs2.jpg");
+		}else if(e.target==img3){
+			$("#img3").attr("src","../imgs2/imgs3.jpg");
+		}else if(e.target==img4){
+			$("#img4").attr("src","../imgs2/imgs4.png");
+		}
+	}
+	
+		
+	
+
+</script>
+
+</head>
+
+<body>
+<h1>Galería de imágenes</h1>
+<table width="100%" border="0">
+  <tr>
+    <td><img style="width:300px; height:300px;" src="../imgs2/imgs1.jpg" id="img1" ></td>
+    <td><img style="width:300px; height:300px;" src="../imgs2/imgs2.jpg" id="img2" ></td>
+    <td><img style="width:300px; height:300px;" src="../imgs2/imgs3.jpg" id="img3" ></td>
+    <td><img style="width:300px; height:300px;" src="../imgs2/imgs4.png" id="img4" ></td>
+  </tr>
+</table>
+</body>
+</html>
